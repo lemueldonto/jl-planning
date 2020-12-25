@@ -1,0 +1,71 @@
+<FlexboxLayout class="page" [nsHideActionBar]>
+    <StackLayout class="form">
+        <Label class="header" text="WHATUDO"></Label>
+        <Label class="head" textWrap="true" text="Inscrivez-vous pour voir ce que les gens aiment faire"></Label>
+        <PreviousNextView>
+            <GridLayout rows="auto, auto, auto, auto, auto">
+                <StackLayout row="0" class="input-field" >
+                    <TextField class="input"
+                               hint="Numéro de mobile ou e-mail"
+                               autocorrect="false"
+                               autocapitalizationType="none"
+                               returnKeyType="next"
+                               [(ngModel)]="user.email"
+                    ></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout row="1" class="input-field">
+                    <TextField class="input"
+                               hint="Nom complet"
+                               returnKeyType="next"
+                               [(ngModel)]="user.completName"
+                    ></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout row="2" class="input-field">
+                    <TextField class="input"
+                               hint="Nom d'utilisateur"
+                               returnKeyType="next"
+                               [(ngModel)]="user.username"
+                    ></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout row="3" class="input-field">
+                    <TextField class="input"
+                               hint="Mot de passe"
+                               secure="true"
+                               returnKeyType="next"
+                               [(ngModel)]="user.password"
+                    ></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout row="4" class="input-field">
+                    <TextField class="input"
+                               hint="Domaine"
+                               returnKeyType="next"
+                               [(ngModel)]="user.domain"
+                    ></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <ActivityIndicator rowSpan="3" [busy]="loading"></ActivityIndicator>
+            </GridLayout>
+        </PreviousNextView>
+        <Button text="S'inscrire"
+                class="btn btn-primary m-t-20 con" (tap)="navigateToSubscribe()"
+                [isEnabled]="!loading"></Button>
+        <Label class="bottom" textWrap="true" text="En vous inscrivant, vous acceptez nos Conditions générales, notre Politique d'utilisation des données et notre Politique d'utilisation des cookies."></Label>
+        <Button class="btn btn-secondary m-t-20 btn-google" (tap)="navigateToSubscribe()"
+                [isEnabled]="!loading">
+            <FormattedString>
+                <Span text="&#xf1a0;" class="fab icon-google"></Span>
+                <Span text="     Se connecter avec Google" style="color: black"></Span>
+            </FormattedString>
+        </Button>
+    </StackLayout>
+    <Label class="login-label sign-up-label" (tap)="navigateToLogin()">
+        <FormattedString>
+            <Span text="Vous avez déjà un compte ? "></Span>
+            <Span text=" Connectez-vous " class="bold"></Span>
+        </FormattedString>
+    </Label>
+</FlexboxLayout>

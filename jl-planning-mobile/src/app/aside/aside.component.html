@@ -1,0 +1,56 @@
+<GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+    <StackLayout class="sidedrawer-header">
+        <Image [src]="user.image"
+               class="sidedrawer-avatar"></Image>
+        <Label class="sidedrawer-header-text var" [text]="user.completName"></Label>
+        <Label class="sidedrawer-header-footnote var" [text]="user.username"></Label>
+        <Label class="sidedrawer-header-footnote var" [text]="user.email"></Label>
+    </StackLayout>
+
+    <ScrollView row="1">
+        <StackLayout class="sidedrawer-content">
+            <!--
+            <StackLayout class="hr-light"></StackLayout>
+
+            <GridLayout columns="auto, *" class="sidedrawer-list-item"
+                        title="Home" tap="onNavigationItemTap">
+                <Label row="0" col="0" text="&#xf015;" class="fa sidedrawer-icon"></Label>
+                <Label row="0" col="1" text="Home" class="m-l-20 sidedrawer-item"></Label>
+            </GridLayout>
+
+            <StackLayout class="hr-light"></StackLayout>
+
+            <GridLayout columns="auto, *" class="sidedrawer-list-item"
+                        title="Friends" tap="onNavigationItemTap">
+                <Label row="0" col="0" text="&#xf007;" class="fa sidedrawer-icon"></Label>
+                <Label row="0" col="1" text="Friends" class="m-l-20 sidedrawer-item"></Label>
+            </GridLayout>
+
+            <StackLayout class="hr-light"></StackLayout>
+
+            <GridLayout columns="auto, *" class="sidedrawer-list-item"
+                        title="To-Do List" tap="onNavigationItemTap">
+                <Label row="0" col="0" text="&#xf0ca;" class="fa sidedrawer-icon"></Label>
+                <Label row="0" col="1" text="To-Do List" class="m-l-20 sidedrawer-item"></Label>
+            </GridLayout>
+
+            <StackLayout class="hr-light"></StackLayout>
+
+            <GridLayout columns="auto, *" class="sidedrawer-list-item"
+                        title="Settings" tap="onNavigationItemTap">
+                <Label row="0" col="0" text="&#xf013;" class="fa sidedrawer-icon"></Label>
+                <Label row="0" col="1" text="Settings" class="m-l-20 sidedrawer-item"></Label>
+            </GridLayout>
+
+            <StackLayout class="hr-light"></StackLayout>-->
+            <GridLayout columns="auto, *" class="sidedrawer-list-item"
+                        title="Se déconnecter" (tap)="logout()">
+                <Label row="0" col="0" text="&#xf013;" class="fa sidedrawer-icon"></Label>
+                <Label row="0" col="1" text="Se déconnecter" class="m-l-20 sidedrawer-item"></Label>
+            </GridLayout>
+
+            <StackLayout class="hr-light"></StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

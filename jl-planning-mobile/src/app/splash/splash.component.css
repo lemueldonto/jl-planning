@@ -1,0 +1,23 @@
+.page {
+    align-items: center;
+    flex-direction: column;
+    background-color: #005952;
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}
+.form {
+    margin-left: 30;
+    margin-right: 30;
+    flex-grow: 2;
+    vertical-align: middle;
+}
+Image {
+    width: 300;
+    height: 300;
+}
+
+
+.bottom-text {
+    margin-bottom: 20;
+    color: white;
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}

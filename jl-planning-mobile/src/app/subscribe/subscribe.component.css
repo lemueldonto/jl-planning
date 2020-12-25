@@ -1,0 +1,61 @@
+/* Add mobile styles for the component here.  */
+.page {
+    align-items: center;
+    flex-direction: column;
+    background-color: #005952;
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}
+
+.form {
+    margin-left: 30;
+    margin-right: 30;
+    flex-grow: 2;
+    vertical-align: middle;
+}
+
+.text{
+    text-align: center;
+    font-size: 18;
+    color: white;
+}
+
+.logo {
+    width: 300;
+    height: 300;
+    font-weight: bold;
+}
+
+.fab {
+    font-family: "Font Awesome 5 Brands", "fa-brands-400";
+}
+
+.ico {
+    font-family: "IcoMoon-Free";
+}
+
+.far {
+    font-family: "Font Awesome 5 Free", "fa-regular-400";
+    font-weight: 400;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
+
+.btn-primary {
+    margin-right: 100;
+    margin-left: 100;
+    background-color: #610B21;
+    border-radius: 30;
+    color: white;
+}
+
+.login-label {
+    horizontal-align: center;
+    color: white;
+    font-size: 13;
+}
+.sign-up-label {
+    margin-bottom: 20;
+}

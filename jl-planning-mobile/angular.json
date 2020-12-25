@@ -3,15 +3,16 @@
   "version": 1,
   "newProjectRoot": "projects",
   "cli": {
-    "defaultCollection": "@nativescript/schematics"
+    "defaultCollection": "@nativescript/schematics",
+    "analytics": "b4ed4d38-9299-4c68-b83b-314ffd4de95f"
   },
   "projects": {
-    "blank": {
+    "hello-world": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "ns"
     }
   },
-  "defaultProject": "blank"
+  "defaultProject": "hello-world"
 }

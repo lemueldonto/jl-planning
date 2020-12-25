@@ -1,0 +1,7 @@
+/* Add mobile styles for the component here.  */
+#statusFooter{
+    background: rgba(0,0,0,0.4);
+}
+#statusLabel{
+    text-align: left;
+}

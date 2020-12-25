@@ -1,0 +1,38 @@
+<StackLayout class="page" width="100%" height="100%">
+    <AbsoluteLayout  width="100%" height="92%"  stretchLastChild="false" [nsHideActionBar]>
+        <StackLayout left="0" top="0" height="100%" width="100%">
+            <AbsoluteLayout    height="18%" width="100%">
+                <Image [src]="imageUrl" style="width: 100%;"></Image>
+            </AbsoluteLayout>
+            <StackLayout   orientation="vertical" height="100%"  width="100%">
+                <StackLayout class="itemTemplateStackLayout header" height="10%" verticalAlignment="center"  horizontalAlignment="center" >
+                    <SearchBar  class="searchBar" textFieldHintColor="gray" hint="Rechercher" height="100%" width="100%">
+                    </SearchBar>
+                </StackLayout>
+                <ListView  *ngIf="posts.length>0" [items]="posts"
+                           separatorColor="transparent" (itemTap)="onItemTap($event)"
+                           class="transactions-list small-spacing" height="85%" marginTop="10">
+                    <ng-template  let-item="item" class="small-spacing" >
+                        <StackLayout class="itemTemplateStackLayout" orientation="vertical" >
+                            <AbsoluteLayout width="100%" height="110" margin="10" marginBottom="-36" marginTop="-10"  class="card" >
+                                <ns-post-in-list [post]="item" [canBeSubscribe]="true"></ns-post-in-list>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                    </ng-template>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+
+    </AbsoluteLayout>
+    <StackLayout width="100%" height="8%">
+        <ns-footer></ns-footer>
+    </StackLayout>
+
+
+    <!-- nsTemplateKey="transaction"
+        <FlexboxLayout dock="bottom"  columns="auto, *, auto" width="100%" backgroundColor="lightgray">
+            <StackLayout col="3" verticalAlignment="center" width="100" horizontalAlignment="right">
+                <FAB (tap)="fabTap()" text="+"  rippleColor="#f1f1f1" class="fab-button " _id="addButtonContainer1"
+                     left="0"></FAB>
+            </StackLayout>
+        </FlexboxLayout> -->

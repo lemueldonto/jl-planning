@@ -1,0 +1,87 @@
+<RadSideDrawer>
+    <StackLayout tkDrawerContent class="sidedrawer-left">
+        <ns-aside></ns-aside>
+    </StackLayout>
+    <StackLayout tkMainContent class="page" width="100%" height="100%">
+        <AbsoluteLayout  width="100%" height="92%"  stretchLastChild="false" [nsHideActionBar]>
+            <StackLayout left="0" top="0" height="100%" width="100%" >
+                <AbsoluteLayout    height="18%" width="100%" >
+                    <Image [src]="imageUrl" style="width: 100%;"></Image>
+                </AbsoluteLayout>
+                <StackLayout width="100%" height="20%"  >
+
+                    <AbsoluteLayout width="100%" height="100%">
+                        <GridLayout columns="auto, *, auto" rows="50,*" height="40%" width="100%" >
+                            <Button row="0" column="0" backgroundColor="#005952" (tap)="openDrawer()">
+                                <FormattedString style="color: white;">
+                                    <Span text="&#9776;" class="fas t-18"></Span>
+                                </FormattedString>
+                            </Button>
+                            <StackLayout row="0" column="2" height="100%" orientation="horizontal" stretchLastChild="false" style="text-align: center;color:white" >
+                                <Label [text]="user.username" verticalAlignment="center" horizontalAlignment="center" ></Label>
+                                <Button (tap)="fabTap()" style="{{'background-image: url(\''+user.image+'\')'}}"  rippleColor="#f1f1f1" class="fab-button addButtonContainer"
+                                        left="0"></Button>
+                            </StackLayout>
+                        </GridLayout>
+                        <GridLayout backgroundColor="black" rows="30%, *" columns="auto, *, auto" top="55%" left="0" height="60%" width="100%" style="color: white;" >
+                            <Label row="1" width="30%" col="0" [text]="'Mes posts '+userService.getNumberOfPost()" verticalAlignment="center" horizontalAlignment="center" ></Label>
+                            <StackLayout row="1" width="51%" col="1"   verticalAlignment="center"  horizontalAlignment="center" >
+                                <Label [text]="'Récent '+userService.getLastPostNumberSeen()+' vue'+(userService.getLastPostNumberSeen()>1?'s':'')" verticalAlignment="center" horizontalAlignment="center" ></Label>
+                                <Label [text]="'il y\'a ' + userService.getLastPostDelay()"  verticalAlignment="center"  horizontalAlignment="center" ></Label>
+                            </StackLayout>
+                            <StackLayout row="1" width="27%" col="2"  verticalAlignment="center"  horizontalAlignment="center" >
+                                <Label   verticalAlignment="center"  horizontalAlignment="center" >
+                                    <FormattedString>
+                                        <Span text="&#11088;" class="fas t-18"></Span>
+                                        <Span [text]="' '+ userService.coin + ' coin' + (userService.coin>1?'s':'')" class="fas t-18"></Span>
+                                    </FormattedString>
+                                </Label>
+                            </StackLayout>
+                        </GridLayout>
+                        <StackLayout #userPost top="20%" width="100%" height="66">
+                            <GridLayout width="100%" height="100%" columns="auto, 80, auto">
+                                <button row="0" column="1" (tap)="fabTap()" style="{{'background-image: url(\''+imageUrl+'\')'}}" rippleColor="#f1f1f1" class="fab-button addButtonContainer"
+                                        left="0"></button>
+                            </GridLayout>
+                        </StackLayout>
+                    </AbsoluteLayout>
+                </StackLayout>
+                <StackLayout   orientation="vertical" height="62%"  width="100%" >
+                    <StackLayout class="itemTemplateStackLayout header" height="15%" verticalAlignment="center"  horizontalAlignment="center" >
+                        <Label  [text]="'Nouveau post ' + posts.length">
+                        </Label>
+                    </StackLayout>
+                    <ListView  *ngIf="posts.length>0" [items]="posts"
+                               separatorColor="transparent" (itemTap)="onItemTap($event)"
+                               class="transactions-list small-spacing" height="85%" marginTop="10">
+                        <ng-template  let-item="item" class="small-spacing" >
+                            <StackLayout class="itemTemplateStackLayout" orientation="vertical" >
+                                <AbsoluteLayout width="100%" height="110" margin="10" marginBottom="-36" marginTop="-10"  class="card" >
+                                    <ns-post-in-list [post]="item"></ns-post-in-list>
+                                </AbsoluteLayout>
+                            </StackLayout>
+                        </ng-template>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout  #addButtonContainer width="100" height="66">
+                <Button (tap)="addPost()" text="+" style="size: 5ex"  rippleColor="#f1f1f1" class="fab-button addButtonContainer"
+                        left="0"></Button>
+            </StackLayout>
+        </AbsoluteLayout>
+        <StackLayout width="100%" height="8%">
+            <ns-footer></ns-footer>
+        </StackLayout>
+    </StackLayout>
+</RadSideDrawer>
+
+
+
+<!-- nsTemplateKey="transaction"
+    <FlexboxLayout dock="bottom"  columns="auto, *, auto" width="100%" backgroundColor="lightgray">
+        <StackLayout col="3" verticalAlignment="center" width="100" horizontalAlignment="right">
+            <FAB (tap)="fabTap()" text="+"  rippleColor="#f1f1f1" class="fab-button " _id="addButtonContainer1"
+                 left="0"></FAB>
+        </StackLayout>
+    </FlexboxLayout> -->

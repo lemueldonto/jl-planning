@@ -1,0 +1,111 @@
+/* Add mobile styles for the component here.  */
+.page{
+    background-color: #005952;
+}
+#usernav{
+    background-color: #005952;
+}
+.transactions-list {
+}
+
+.small-spacing {
+}
+
+.itemTemplateStackLayout {
+    padding: 0;
+    padding-bottom: 1;
+}
+
+.addButtonContainer {
+    background-color: lightgray;
+    width: 50;
+    height: 50;
+    padding: 0 0 8;
+    border-radius: 50%;
+    color: #000;
+    margin-right: 15;
+    size: 40;
+    //text-decoration: gainsboro;
+}
+
+.header {
+    background-color: lightgray;
+    height: 46;
+    width: 100%;
+    text-align: center;
+}
+
+.avatar{
+    border-width:2;
+    border-radius:50%;
+}
+.avatar Label{
+    text-align: center;
+    horizontal-align:center;
+}
+
+.contactImage,.contactImageName{
+    width: 100;
+    height: 100;
+    vertical-align: center;
+    background-color: gray;
+    border-radius: 50%;
+}
+.selectedContacts .contactImage,.selectedContacts .contactImageName{
+    margin-bottom: 5;
+}
+.contactImageName Label{
+    font-size: 33;
+}
+.close{
+    margin: 5;
+    vertical-align: bottom;
+    horizontal-align: right;
+    border-radius: 50%;
+    width: 20;
+    height: 20;
+    font-size: 15;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+.contact .fname,.contact .lname{
+    horizontal-align: stretch;
+    text-align: center;
+}
+.contact .name{
+    margin-bottom: 5;
+    vertical-align: bottom;
+}
+.contact .mobile{
+    margin-top: 5;
+    vertical-align: top;
+}
+.contact.selected{
+    border-width: 1;
+}
+.allContacts .contact{
+    margin: 10;
+}
+.vCenter{
+    vertical-align: center;
+}
+
+.sidedrawer-list-item-text {
+    color: #fff
+}
+
+.sidedrawer-left {
+    background-color: #fff;
+}
+
+.sidedrawer-content {
+    margin-top: 40;
+}
+
+.sidedrawer-list-item-text {
+    padding: 20;
+    color: #000;
+    border-width: 1;
+    border-color: #bf97df;
+    margin-bottom: -1;
+}
