@@ -1,8 +1,46 @@
-<ActionBar>
+<!--<ActionBar>
     <Label text="Browse"></Label>
 </ActionBar>
 
 <GridLayout class="page__content">
     <Label class="page__content-icon far" text="&#xf1ea;"></Label>
-    <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+    <Label class="page__content-placeholder" text="age content goes here"></Label>
+</GridLayout> -->
+
+<ActionBar class="action-bar">
+    <Label text="Week plannings({{_itemService.getPhotos().length}})" class="actionBarLabel"></Label>
+</ActionBar>
+
+<GridLayout tkExampleTitle tkToggleNavButton>
+
+    <RadListView [items]="_itemService.getPhotos()" marginRight="-2">
+        <ListViewGridLayout tkListViewLayout scrollDirection="Vertical"
+                            itemHeight="200" spanCount="1">
+        </ListViewGridLayout>
+        <ng-template tkListItemTemplate let-item="item">
+            <GridLayout backgroundColor="White">
+                <GridLayout>
+                    <ios>
+                        <Label text="Week plannings({{_itemService.getPhotos().length}})" class="actionBarLabel"></Label>
+                        <Image src="{{ item.image.src }}" stretch="aspectFill"></Image>
+                    </ios>
+                    <android>
+
+                        <Image src="{{ item.image.src._android  }}" stretch="aspectFill"
+                               height="180"></Image>
+
+                    </android>
+                    <GridLayout verticalAlignment="bottom">
+                        <StackLayout paddingTop="8" paddingBottom="8"
+                                     paddingLeft="16" paddingRight="16">
+                            <!--<Label text="{{ item.city }}" class="locationCity"></Label>-->
+                            <!--<Label text="{{ item.country }}" class="locationCountry"></Label>-->
+                        </StackLayout>
+                    </GridLayout>
+                </GridLayout>
+            </GridLayout>
+        </ng-template>
+    </RadListView>
 </GridLayout>
+<!-- <FrescoDrawee horizontalAlignment="stretch" height="180"
+                            imageUri="{{ item.imageSrc }}"></FrescoDrawee> -->

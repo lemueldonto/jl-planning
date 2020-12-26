@@ -3,11 +3,13 @@
 </ActionBar>
 
 <GridLayout>
-    <ListView [items]="items">
+    <Button backgroundColor="White" height="210" text="Prendre une photo" (tap)="takeAPicture()">
+    </Button>
+    <!--<ListView [items]="items">
         <ng-template let-item="item">
             <StackLayout>
                 <Label [nsRouterLink]="['../item', item.id]" [text]="item.name"></Label>
             </StackLayout>
         </ng-template>
-    </ListView>
+    </ListView>-->
 </GridLayout>

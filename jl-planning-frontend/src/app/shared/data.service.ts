@@ -1,9 +1,14 @@
 import { Injectable } from "@angular/core";
+import { Image } from "tns-core-modules/ui/image";
 
 export interface DataItem {
     id: number;
     name: string;
     description: string;
+}
+export interface Photos {
+    id: number;
+    image: Image;
 }
 
 @Injectable({
@@ -113,6 +118,7 @@ export class DataService {
             description: "Description for Item 20"
         }
     );
+    private photos = new Array<Photos>();
 
     getItems(): Array<DataItem> {
         return this.items;
@@ -120,5 +126,16 @@ export class DataService {
 
     getItem(id: number): DataItem {
         return this.items.filter((item) => item.id === id)[0];
+    }
+    getPhotos(): Array<Photos> {
+        return this.photos;
+    }
+
+    getPhoto(id: number): Photos {
+        return this.photos.filter((item) => item.id === id)[0];
+    }
+    addPhoto(image: Image) {
+        this.photos.push({id: this.photos.length > 0 ? this.photos[this.photos.length - 1].id + 1 : 1,
+                          image});
     }
 }
