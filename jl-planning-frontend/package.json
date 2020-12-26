@@ -1,6 +1,6 @@
 {
   "nativescript": {
-    "id": "org.nativescript.jlplanningfrontend",
+    "id": "org.nativescript.b",
     "tns-android": {
       "version": "6.5.0"
     },
@@ -25,7 +25,6 @@
     "@angular/router": "~8.2.0",
     "@nativescript/theme": "~2.3.0",
     "nativescript-angular": "~8.21.0",
-    "nativescript-ui-sidedrawer": "~8.0.0",
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.4.0",
     "tns-core-modules": "~6.5.0",
