@@ -2,31 +2,27 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NSEmptyOutletComponent } from "nativescript-angular";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { LoginComponent } from "~/app/components/login/login.component";
+import { RegisterComponent } from "~/app/components/register/register.component";
 
 const routes: Routes = [
     {
         path: "",
-        redirectTo: "/(homeTab:home/default//browseTab:browse/default//searchTab:search/default)",
+        redirectTo: "/login",
         pathMatch: "full"
     },
 
     {
-        path: "home",
-        component: NSEmptyOutletComponent,
-        loadChildren: () => import("~/app/home/home.module").then((m) => m.HomeModule),
-        outlet: "homeTab"
+        path: "login",
+        component: LoginComponent
     },
     {
-        path: "browse",
-        component: NSEmptyOutletComponent,
-        loadChildren: () => import("~/app/browse/browse.module").then((m) => m.BrowseModule),
-        outlet: "browseTab"
+        path: "register",
+        component: RegisterComponent
     },
     {
-        path: "search",
-        component: NSEmptyOutletComponent,
-        loadChildren: () => import("~/app/search/search.module").then((m) => m.SearchModule),
-        outlet: "searchTab"
+        path: "tab",
+        loadChildren: "./components/tab/tab.module#TabModule"
     }
 ];
 
