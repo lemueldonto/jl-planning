@@ -10,9 +10,8 @@ import { Page } from "tns-core-modules/ui/page/page";
         styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent {
-    isLoggingIn = true;
     user: User;
-    processing = false;
+    confirmPasswordContent = "";
     @ViewChild("password", {static: false}) password: ElementRef;
     @ViewChild("confirmPassword", {static: false}) confirmPassword: ElementRef;
 
@@ -23,15 +22,24 @@ export class RegisterComponent {
         this.user.password = "";
     }
 
+    validateInputs() {
+        return (
+            this.user.firstName && this.user.firstName.length > 0 &&
+            this.user.lastName && this.user.lastName.length > 0 &&
+            this.user.email && this.user.email.length > 0 &&
+            this.user.password && this.user.password.length > 0 &&
+            this.confirmPasswordContent && this.confirmPasswordContent.length > 0 &&
+            this.user.password === this.confirmPasswordContent
+        );
+    }
 
     submit() {
-        if (!this.user.email || !this.user.password) {
+        if (this.validateInputs()) {
             this.alert("Veuillez fournir toutes les informations demandées.");
 
             return;
         }
 
-        this.processing = true;
 
         this.register();
     }
@@ -40,15 +48,15 @@ export class RegisterComponent {
         this.routerExtensions.navigate(["/login"], { clearHistory: true });
     }
 
-    register() {}
+    register() {
+
+    }
 
     focusPassword() {
         this.password.nativeElement.focus();
     }
     focusConfirmPassword() {
-        if (!this.isLoggingIn) {
             this.confirmPassword.nativeElement.focus();
-        }
     }
 
     alert(message: string) {

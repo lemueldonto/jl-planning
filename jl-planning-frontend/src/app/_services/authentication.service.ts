@@ -3,15 +3,34 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { User } from "~/app/_models/user";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/internal/operators";
+import { environment } from "~/environments/environment";
+import {
+    getBoolean,
+    setBoolean,
+    getNumber,
+    setNumber,
+    getString,
+    setString,
+    hasKey,
+    remove,
+    clear
+} from "tns-core-modules/application-settings";
+
 
 @Injectable({providedIn: "root"})
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     private currentUser: Observable<User>;
 
+
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem("currentUser")));
-        this.currentUser = this.currentUserSubject.asObservable();
+        if (hasKey("currentUser")) {
+            this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(getString("currentUser")));
+            this.currentUser = this.currentUserSubject.asObservable();
+        } else {
+            this.currentUserSubject = new BehaviorSubject<User>(null);
+            this.currentUser = this.currentUserSubject.asObservable();
+        }
     }
 
     get currentUserValue(): User {
@@ -19,17 +38,26 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
-        return this.http.post<any>("url", {username, password})
-            .pipe(map((user) => {
-                localStorage.setItem("currentUser", JSON.stringify(user));
+        const user: User = {
+            firstName: "", id: 0, lastName: "",
+            username,
+            email: username,
+            password
+        };
+
+        return this.http.post<any>("http://127.0.0.1:8000/api/token/", {username, password})
+            .pipe(map((token) => {
+                setString("token", JSON.stringify(token));
+                setString("currentUser", JSON.stringify(user));
+                console.log(token);
                 this.currentUserSubject.next(user);
 
-                return user;
+                return token;
             }));
     }
 
     logout() {
-        localStorage.removeItem("currentUser");
+        remove("currentUser");
         this.currentUserSubject.next(null);
     }
 

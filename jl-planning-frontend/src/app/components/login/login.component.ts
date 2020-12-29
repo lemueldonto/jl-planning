@@ -3,6 +3,7 @@ import { User } from "~/app/_models/user";
 import { UserService } from "~/app/_services/user.service";
 import { RouterExtensions } from "nativescript-angular/router";
 import { Page } from "tns-core-modules/ui/page/page";
+import { AuthenticationService } from "~/app/_services/authentication.service";
 
 @Component({
         selector: "Login",
@@ -16,7 +17,8 @@ export class LoginComponent {
     @ViewChild("password", {static: false}) password: ElementRef;
     @ViewChild("confirmPassword", {static: false}) confirmPassword: ElementRef;
 
-    constructor(private page: Page, private userService: UserService, private routerExtensions: RouterExtensions) {
+    constructor(private page: Page, private userService: UserService, private routerExtensions: RouterExtensions,
+                private authenticationService: AuthenticationService) {
         this.page.actionBarHidden = true;
         this.user = new User();
         this.user.email = "";
@@ -29,18 +31,14 @@ export class LoginComponent {
 
             return;
         }
-
-        this.processing = true;
-        if (this.isLoggingIn) {
-            this.login();
-        } else {
-            this.register();
-        }
+        this.login();
     }
 
-    login() {}
-
-    register() {}
+    login() {
+        this.authenticationService.login(this.user.email, this.user.password).subscribe(res => {
+            this.alert(" Connexion avec success");
+        });
+    }
 
     forgotPassword() {}
 

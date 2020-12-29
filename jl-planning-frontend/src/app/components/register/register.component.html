@@ -9,7 +9,7 @@
                 <StackLayout row="0" class="input-field">
                     <TextField class="input" hint="Nom"
                                autocorrect="false"
-                               autocapitalizationType="none" [(ngModel)]="user.email"
+                               autocapitalizationType="none" [(ngModel)]="user.firstName"
                                returnKeyType="next"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
@@ -17,7 +17,7 @@
                 <StackLayout row="1" class="input-field">
                     <TextField class="input" hint="Prénom"
                                autocorrect="false"
-                               autocapitalizationType="none" [(ngModel)]="user.email"
+                               autocapitalizationType="none" [(ngModel)]="user.lastName"
                                returnKeyType="next"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
@@ -40,7 +40,7 @@
 
                 <StackLayout row="4" class="input-field">
                     <TextField #confirmPassword class="input"
-                               hint="Confirm password" secure="true" [(ngModel)]="user.confirmPassword"
+                               hint="Confirm password" secure="true" [(ngModel)]="confirmPasswordContent"
                                returnKeyType="next"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
