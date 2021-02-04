@@ -26,7 +26,7 @@
                     <TextField class="input" hint="Email"
                                keyboardType="email" autocorrect="false"
                                autocapitalizationType="none" [(ngModel)]="user.email"
-                               returnKeyType="next" (returnPress)="focusPassword()"></TextField>
+                               returnKeyType="next"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
@@ -34,7 +34,7 @@
                     <TextField #password class="input"
                                hint="Password" secure="true" [(ngModel)]="user.password"
                                returnKeyType="next"
-                               (returnPress)="focusConfirmPassword()"></TextField>
+                    ></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 

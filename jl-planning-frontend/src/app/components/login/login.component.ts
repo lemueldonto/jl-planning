@@ -26,21 +26,20 @@ export class LoginComponent {
     }
 
     submit() {
-        if (!this.user.email || !this.user.password) {
+        /* if (!this.user.email || !this.user.password) {
             this.alert("Veuillez fournir une adresse e-mail et un mot de passe.");
 
             return;
-        }
+        }*/
         this.login();
+        this.navigateToHome();
     }
 
     login() {
-        this.authenticationService.login(this.user.email, this.user.password).subscribe(res => {
+        this.authenticationService.login(this.user.email, this.user.password).subscribe((res) => {
             this.alert(" Connexion avec success");
         });
     }
-
-    forgotPassword() {}
 
     focusPassword() {
         this.password.nativeElement.focus();
@@ -55,6 +54,10 @@ export class LoginComponent {
         this.routerExtensions.navigate(["/register"], { clearHistory: true });
     }
 
+    navigateToHome() {
+        this.routerExtensions.navigate(["/tab"], { clearHistory: true });
+    }
+
     alert(message: string) {
         return alert({
             title: "JL - PLANNING",
@@ -63,4 +66,7 @@ export class LoginComponent {
         });
     }
 
+    forgotPassword() {
+        console.log("OUBLIE");
+    }
 }

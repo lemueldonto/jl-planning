@@ -9,15 +9,14 @@
                     <TextField class="input" hint="Email"
                                keyboardType="email" autocorrect="false"
                                autocapitalizationType="none" [(ngModel)]="user.email"
-                               returnKeyType="next" (returnPress)="focusPassword()"></TextField>
+                               returnKeyType="next"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
                 <StackLayout row="1" class="input-field">
-                    <TextField #password class="input" [isEnabled]="!processing"
+                    <TextField #password class="input"
                                hint="Mot de passe" secure="true" [(ngModel)]="user.password"
-                               [returnKeyType]="'done'"
-                               (returnPress)="focusConfirmPassword()"></TextField>
+                    ></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
@@ -25,7 +24,7 @@
             </GridLayout>
         </PreviousNextView>
 
-        <Button [text]="'Se connecter'"
+        <Button text="Se connecter"
                 (tap)="submit()" class="btn -outline -rounded-lg btn-primary"></Button>
         <Label text="Mot de passe oublié ?" class="login-label"
                (tap)="forgotPassword()"></Label>

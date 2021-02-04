@@ -15,6 +15,9 @@ export class RegisterComponent {
     @ViewChild("password", {static: false}) password: ElementRef;
     @ViewChild("confirmPassword", {static: false}) confirmPassword: ElementRef;
 
+    // tslint:disable-next-line:no-empty
+    processing: any;
+
     constructor(private page: Page, private userService: UserService, private routerExtensions: RouterExtensions) {
         this.page.actionBarHidden = true;
         this.user = new User();
@@ -34,22 +37,22 @@ export class RegisterComponent {
     }
 
     submit() {
-        if (this.validateInputs()) {
+        /* if (this.validateInputs()) {
             this.alert("Veuillez fournir toutes les informations demandées.");
 
             return;
         }
 
-
-        this.register();
+        this.register();*/
+        this.navigateToHome();
     }
 
     navigateToLogin() {
         this.routerExtensions.navigate(["/login"], { clearHistory: true });
     }
 
-    register() {
-
+    navigateToHome() {
+        this.routerExtensions.navigate(["/tab"], { clearHistory: true });
     }
 
     focusPassword() {
@@ -66,5 +69,7 @@ export class RegisterComponent {
             message
         });
     }
-
+    private register() {
+      console.log("REGISTER");
+    }
 }
